@@ -3,39 +3,39 @@
 #include <string.h>
 #include "returns_stack.h"
 
-void initStack(ReturnsStack *stack) {
+void inicializarPila(PilaDevoluciones *pila) {
     // TODO
 }
 
-// Push returned package - returns 1 if success
-int push(ReturnsStack *stack, Package pkg) {
+// Apila paquete devuelto - retorna 1 si éxito
+int apilar(PilaDevoluciones *pila, Paquete paquete) {
     // TODO
     return 0;
 }
 
-// Pop - sets success=1 if ok, success=0 if empty
-Package pop(ReturnsStack *stack, int *success) {
-    Package empty = {0};
+// Desapila - exito=1 si ok, exito=0 si vacía
+Paquete desapilar(PilaDevoluciones *pila, int *exito) {
+    Paquete vacio = {0};
     // TODO
-    return empty;
+    return vacio;
 }
 
-// Peek top without removing
-Package peekStack(ReturnsStack *stack, int *success) {
-    Package empty = {0};
+// Consulta tope sin eliminar
+Paquete peekPila(PilaDevoluciones *pila, int *exito) {
+    Paquete vacio = {0};
     // TODO
-    return empty;
+    return vacio;
 }
 
-void displayStack(ReturnsStack *stack) {
+void mostrarPila(PilaDevoluciones *pila) {
     // TODO
 }
 
-int isStackEmpty(ReturnsStack *stack) {
+int pilaVacia(PilaDevoluciones *pila) {
     // TODO
     return 1;
 }
 
-void freeStack(ReturnsStack *stack) {
+void liberarPila(PilaDevoluciones *pila) {
     // TODO
 }

@@ -3,38 +3,38 @@
 #include <string.h>
 #include "routes_graph.h"
 
-void initGraph(RouteGraph *graph) {
+void inicializarGrafo(GrafoRutas *grafo) {
     // TODO
 }
 
-// Add delivery point - returns index or -1 if full/duplicate
-int addPoint(RouteGraph *graph, const char *name) {
+// Agrega punto de entrega - retorna índice o -1 si lleno/duplicado
+int agregarPunto(GrafoRutas *grafo, const char *nombre) {
     // TODO
     return -1;
 }
 
-// Add route between two points with weight
-// Returns 1 if success, 0 if points don't exist
-int addRoute(RouteGraph *graph, const char *from, const char *to, int weight) {
+// Agrega ruta entre dos puntos con peso
+// Retorna 1 si éxito, 0 si algún punto no existe
+int agregarRuta(GrafoRutas *grafo, const char *origen, const char *destino, int peso) {
     // TODO
     return 0;
 }
 
-// Find point index by name - returns -1 if not found
-int findPointIndex(RouteGraph *graph, const char *name) {
+// Busca índice de punto por nombre - retorna -1 si no existe
+int buscarIndicePunto(GrafoRutas *grafo, const char *nombre) {
     // TODO
     return -1;
 }
 
-void displayPoints(RouteGraph *graph) {
+void mostrarPuntos(GrafoRutas *grafo) {
     // TODO
 }
 
-void displayAdjacencyMatrix(RouteGraph *graph) {
+void mostrarMatrizAdyacencia(GrafoRutas *grafo) {
     // TODO
 }
 
-// Calculate and display shortest path using Dijkstra
-void dijkstra(RouteGraph *graph, const char *origin, const char *destination) {
+// Calcula y muestra la ruta más corta usando Dijkstra
+void dijkstra(GrafoRutas *grafo, const char *origen, const char *destino) {
     // TODO
 }

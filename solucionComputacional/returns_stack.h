@@ -3,25 +3,25 @@
 
 #include "types.h"
 
-// ─── Node of the stack ────────────────────────────────────────────
-typedef struct StackNode {
-    Package data;
-    struct StackNode *next;
-} StackNode;
+// ─── Nodo de la pila ──────────────────────────────────────────────
+typedef struct NodoPila {
+    Paquete dato;
+    struct NodoPila *siguiente;
+} NodoPila;
 
-// ─── Stack (LIFO) ─────────────────────────────────────────────────
+// ─── Pila (LIFO) ──────────────────────────────────────────────────
 typedef struct {
-    StackNode *top;
-    int size;
-} ReturnsStack;
+    NodoPila *tope;
+    int tamano;
+} PilaDevoluciones;
 
-// ─── Function declarations ────────────────────────────────────────
-void initStack(ReturnsStack *stack);
-int  push(ReturnsStack *stack, Package pkg);
-Package pop(ReturnsStack *stack, int *success);
-Package peekStack(ReturnsStack *stack, int *success);
-void displayStack(ReturnsStack *stack);
-int  isStackEmpty(ReturnsStack *stack);
-void freeStack(ReturnsStack *stack);
+// ─── Declaración de funciones ─────────────────────────────────────
+void    inicializarPila(PilaDevoluciones *pila);
+int     apilar(PilaDevoluciones *pila, Paquete paquete);
+Paquete desapilar(PilaDevoluciones *pila, int *exito);
+Paquete peekPila(PilaDevoluciones *pila, int *exito);
+void    mostrarPila(PilaDevoluciones *pila);
+int     pilaVacia(PilaDevoluciones *pila);
+void    liberarPila(PilaDevoluciones *pila);
 
 #endif // RETURNS_STACK_H

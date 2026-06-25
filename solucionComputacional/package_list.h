@@ -3,26 +3,26 @@
 
 #include "types.h"
 
-// ─── Node of the linked list ──────────────────────────────────────
-typedef struct PackageNode {
-    Package data;
-    struct PackageNode *next;
-} PackageNode;
+// ─── Nodo de la lista enlazada ────────────────────────────────────
+typedef struct NodoPaquete {
+    Paquete dato;
+    struct NodoPaquete *siguiente;
+} NodoPaquete;
 
-// ─── Linked list ──────────────────────────────────────────────────
+// ─── Lista enlazada ───────────────────────────────────────────────
 typedef struct {
-    PackageNode *head;
-    int size;
-} PackageList;
+    NodoPaquete *cabeza;
+    int tamano;
+} ListaPaquetes;
 
-// ─── Function declarations ────────────────────────────────────────
-void initPackageList(PackageList *list);
-int  insertPackage(PackageList *list, Package pkg);
-PackageNode* searchPackageByCode(PackageList *list, const char *code);
-int  updatePackageState(PackageList *list, const char *code, const char *newState);
-int  deletePackage(PackageList *list, const char *code);
-void displayAllPackages(PackageList *list);
-void countPackagesByState(PackageList *list);
-void freePackageList(PackageList *list);
+// ─── Declaración de funciones ─────────────────────────────────────
+void         inicializarListaPaquetes(ListaPaquetes *lista);
+int          insertarPaquete(ListaPaquetes *lista, Paquete paquete);
+NodoPaquete* buscarPaquetePorCodigo(ListaPaquetes *lista, const char *codigo);
+int          actualizarEstadoPaquete(ListaPaquetes *lista, const char *codigo, const char *nuevoEstado);
+int          eliminarPaquete(ListaPaquetes *lista, const char *codigo);
+void         mostrarTodosPaquetes(ListaPaquetes *lista);
+void         contarPaquetesPorEstado(ListaPaquetes *lista);
+void         liberarListaPaquetes(ListaPaquetes *lista);
 
 #endif // PACKAGE_LIST_H

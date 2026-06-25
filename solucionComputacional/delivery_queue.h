@@ -3,26 +3,26 @@
 
 #include "types.h"
 
-// ─── Node of the queue ────────────────────────────────────────────
-typedef struct QueueNode {
-    Package data;
-    struct QueueNode *next;
-} QueueNode;
+// ─── Nodo de la cola ──────────────────────────────────────────────
+typedef struct NodoCola {
+    Paquete dato;
+    struct NodoCola *siguiente;
+} NodoCola;
 
-// ─── Queue (FIFO) ─────────────────────────────────────────────────
+// ─── Cola (FIFO) ──────────────────────────────────────────────────
 typedef struct {
-    QueueNode *front;
-    QueueNode *rear;
-    int size;
-} DeliveryQueue;
+    NodoCola *frente;
+    NodoCola *final;
+    int tamano;
+} ColaPendientes;
 
-// ─── Function declarations ────────────────────────────────────────
-void initQueue(DeliveryQueue *queue);
-int  enqueue(DeliveryQueue *queue, Package pkg);
-Package dequeue(DeliveryQueue *queue, int *success);
-Package peekQueue(DeliveryQueue *queue, int *success);
-void displayQueue(DeliveryQueue *queue);
-int  isQueueEmpty(DeliveryQueue *queue);
-void freeQueue(DeliveryQueue *queue);
+// ─── Declaración de funciones ─────────────────────────────────────
+void    inicializarCola(ColaPendientes *cola);
+int     enqueue(ColaPendientes *cola, Paquete paquete);
+Paquete dequeue(ColaPendientes *cola, int *exito);
+Paquete peekCola(ColaPendientes *cola, int *exito);
+void    mostrarCola(ColaPendientes *cola);
+int     colaVacia(ColaPendientes *cola);
+void    liberarCola(ColaPendientes *cola);
 
 #endif // DELIVERY_QUEUE_H

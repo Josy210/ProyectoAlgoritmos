@@ -1,45 +1,45 @@
 #ifndef TYPES_H
 #define TYPES_H
 
-// ─── Package states ───────────────────────────────────────────────
-#define STATE_REGISTERED     "Registered"
-#define STATE_PENDING        "Pending"
-#define STATE_IN_ROUTE       "In Route"
-#define STATE_DELIVERED      "Delivered"
-#define STATE_RETURNED       "Returned"
+// ─── Estados del paquete ──────────────────────────────────────────
+#define ESTADO_REGISTRADO        "Registrado"
+#define ESTADO_PENDIENTE         "Pendiente de entrega"
+#define ESTADO_EN_RUTA           "En ruta"
+#define ESTADO_ENTREGADO         "Entregado"
+#define ESTADO_DEVUELTO          "Devuelto"
 
-// ─── Priority levels ──────────────────────────────────────────────
-#define PRIORITY_LOW         "Low"
-#define PRIORITY_MEDIUM      "Medium"
-#define PRIORITY_HIGH        "High"
+// ─── Niveles de prioridad ─────────────────────────────────────────
+#define PRIORIDAD_BAJA           "Baja"
+#define PRIORIDAD_MEDIA          "Media"
+#define PRIORIDAD_ALTA           "Alta"
 
-// ─── Field sizes ──────────────────────────────────────────────────
-#define MAX_CODE        20
-#define MAX_NAME        100
-#define MAX_PHONE       20
-#define MAX_EMAIL       100
-#define MAX_ADDRESS     150
-#define MAX_STATE       30
-#define MAX_PRIORITY    10
+// ─── Tamaños de campos ────────────────────────────────────────────
+#define MAX_CODIGO       20
+#define MAX_NOMBRE       100
+#define MAX_TELEFONO     20
+#define MAX_CORREO       100
+#define MAX_DIRECCION    150
+#define MAX_ESTADO       30
+#define MAX_PRIORIDAD    10
 
-// ─── Client structure ─────────────────────────────────────────────
+// ─── Estructura Cliente ───────────────────────────────────────────
 typedef struct {
     int id;
-    char name[MAX_NAME];
-    char phone[MAX_PHONE];
-    char email[MAX_EMAIL];
-    char address[MAX_ADDRESS];
-} Client;
+    char nombre[MAX_NOMBRE];
+    char telefono[MAX_TELEFONO];
+    char correo[MAX_CORREO];
+    char direccion[MAX_DIRECCION];
+} Cliente;
 
-// ─── Package structure ────────────────────────────────────────────
+// ─── Estructura Paquete ───────────────────────────────────────────
 typedef struct {
-    char code[MAX_CODE];
-    int  clientId;
-    char recipientName[MAX_NAME];
-    char destination[MAX_ADDRESS];
-    float weight;
-    char priority[MAX_PRIORITY];
-    char state[MAX_STATE];
-} Package;
+    char codigo[MAX_CODIGO];
+    int  idCliente;
+    char nombreDestinatario[MAX_NOMBRE];
+    char destino[MAX_DIRECCION];
+    float peso;
+    char prioridad[MAX_PRIORIDAD];
+    char estado[MAX_ESTADO];
+} Paquete;
 
 #endif // TYPES_H

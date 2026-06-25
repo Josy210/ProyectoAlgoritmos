@@ -7,19 +7,19 @@
 #include "package_avl.h"
 #include "routes_graph.h"
 
-// ─── File names ───────────────────────────────────────────────────
-#define FILE_CLIENTS   "clients.txt"
-#define FILE_PACKAGES  "packages.txt"
-#define FILE_ROUTES    "routes.txt"
+// ─── Nombres de archivos ──────────────────────────────────────────
+#define ARCHIVO_CLIENTES  "clientes.txt"
+#define ARCHIVO_PAQUETES  "paquetes.txt"
+#define ARCHIVO_RUTAS     "rutas.txt"
 
-// ─── Function declarations ────────────────────────────────────────
-void saveClients(ClientBST *tree);
-void loadClients(ClientBST *tree);
+// ─── Declaración de funciones ─────────────────────────────────────
+void guardarClientes(ArbolClientes *arbol);
+void cargarClientes(ArbolClientes *arbol);
 
-void savePackages(PackageList *list);
-void loadPackages(PackageList *list, PackageAVL *avl, ClientBST *bst);
+void guardarPaquetes(ListaPaquetes *lista);
+void cargarPaquetes(ListaPaquetes *lista, ArbolAVL *avl, ArbolClientes *bst);
 
-void saveRoutes(RouteGraph *graph);
-void loadRoutes(RouteGraph *graph);
+void guardarRutas(GrafoRutas *grafo);
+void cargarRutas(GrafoRutas *grafo);
 
 #endif // FILES_H

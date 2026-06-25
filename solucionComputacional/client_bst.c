@@ -3,40 +3,40 @@
 #include <string.h>
 #include "client_bst.h"
 
-void initBST(ClientBST *tree) {
+void inicializarBST(ArbolClientes *arbol) {
     // TODO
 }
 
-// Insert client - returns 1 if success, 0 if duplicate id
-int insertClient(ClientBST *tree, Client client) {
+// Inserta cliente - retorna 1 si éxito, 0 si id duplicado
+int insertarCliente(ArbolClientes *arbol, Cliente cliente) {
     // TODO
     return 0;
 }
 
-// Search client by id - returns node or NULL
-BSTNode* searchClient(ClientBST *tree, int id) {
+// Busca cliente por id - retorna nodo o NULL
+NodoBST* buscarCliente(ArbolClientes *arbol, int id) {
     // TODO
     return NULL;
 }
 
-// Returns 1 if client exists, 0 if not
-int clientExists(ClientBST *tree, int id) {
+// Retorna 1 si el cliente existe, 0 si no
+int clienteExiste(ArbolClientes *arbol, int id) {
     // TODO
     return 0;
 }
 
-void displayInOrder(ClientBST *tree) {
+void mostrarInOrder(ArbolClientes *arbol) {
     // TODO
 }
 
-void displayPreOrder(ClientBST *tree) {
+void mostrarPreOrder(ArbolClientes *arbol) {
     // TODO
 }
 
-void displayPostOrder(ClientBST *tree) {
+void mostrarPostOrder(ArbolClientes *arbol) {
     // TODO
 }
 
-void freeBST(ClientBST *tree) {
+void liberarBST(ArbolClientes *arbol) {
     // TODO
 }

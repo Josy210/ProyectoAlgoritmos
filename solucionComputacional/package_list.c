@@ -3,46 +3,46 @@
 #include <string.h>
 #include "package_list.h"
 
-// Initialize empty list
-void initPackageList(PackageList *list) {
+// Inicializa la lista vacía
+void inicializarListaPaquetes(ListaPaquetes *lista) {
     // TODO
 }
 
-// Insert package - returns 1 if success, 0 if duplicate code
-int insertPackage(PackageList *list, Package pkg) {
+// Inserta paquete - retorna 1 si éxito, 0 si código duplicado
+int insertarPaquete(ListaPaquetes *lista, Paquete paquete) {
     // TODO
     return 0;
 }
 
-// Search package by code - returns node or NULL
-PackageNode* searchPackageByCode(PackageList *list, const char *code) {
+// Busca paquete por código - retorna nodo o NULL
+NodoPaquete* buscarPaquetePorCodigo(ListaPaquetes *lista, const char *codigo) {
     // TODO
     return NULL;
 }
 
-// Update package state - returns 1 if success, 0 if not found
-int updatePackageState(PackageList *list, const char *code, const char *newState) {
+// Actualiza estado - retorna 1 si éxito, 0 si no encontrado
+int actualizarEstadoPaquete(ListaPaquetes *lista, const char *codigo, const char *nuevoEstado) {
     // TODO
     return 0;
 }
 
-// Delete package - returns 1 if success, 0 if not found
-int deletePackage(PackageList *list, const char *code) {
+// Elimina paquete - retorna 1 si éxito, 0 si no encontrado
+int eliminarPaquete(ListaPaquetes *lista, const char *codigo) {
     // TODO
     return 0;
 }
 
-// Display all packages
-void displayAllPackages(PackageList *list) {
+// Muestra todos los paquetes
+void mostrarTodosPaquetes(ListaPaquetes *lista) {
     // TODO
 }
 
-// Count and display packages grouped by state
-void countPackagesByState(PackageList *list) {
+// Cuenta y muestra paquetes agrupados por estado
+void contarPaquetesPorEstado(ListaPaquetes *lista) {
     // TODO
 }
 
-// Free all memory
-void freePackageList(PackageList *list) {
+// Libera toda la memoria
+void liberarListaPaquetes(ListaPaquetes *lista) {
     // TODO
 }

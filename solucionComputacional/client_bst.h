@@ -3,27 +3,27 @@
 
 #include "types.h"
 
-// ─── BST node ─────────────────────────────────────────────────────
-typedef struct BSTNode {
-    Client data;
-    struct BSTNode *left;
-    struct BSTNode *right;
-} BSTNode;
+// ─── Nodo del BST ─────────────────────────────────────────────────
+typedef struct NodoBST {
+    Cliente dato;
+    struct NodoBST *izquierda;
+    struct NodoBST *derecha;
+} NodoBST;
 
-// ─── BST tree ─────────────────────────────────────────────────────
+// ─── Árbol BST ────────────────────────────────────────────────────
 typedef struct {
-    BSTNode *root;
-    int size;
-} ClientBST;
+    NodoBST *raiz;
+    int tamano;
+} ArbolClientes;
 
-// ─── Function declarations ────────────────────────────────────────
-void    initBST(ClientBST *tree);
-int     insertClient(ClientBST *tree, Client client);
-BSTNode* searchClient(ClientBST *tree, int id);
-int     clientExists(ClientBST *tree, int id);
-void    displayInOrder(ClientBST *tree);
-void    displayPreOrder(ClientBST *tree);
-void    displayPostOrder(ClientBST *tree);
-void    freeBST(ClientBST *tree);
+// ─── Declaración de funciones ─────────────────────────────────────
+void     inicializarBST(ArbolClientes *arbol);
+int      insertarCliente(ArbolClientes *arbol, Cliente cliente);
+NodoBST* buscarCliente(ArbolClientes *arbol, int id);
+int      clienteExiste(ArbolClientes *arbol, int id);
+void     mostrarInOrder(ArbolClientes *arbol);
+void     mostrarPreOrder(ArbolClientes *arbol);
+void     mostrarPostOrder(ArbolClientes *arbol);
+void     liberarBST(ArbolClientes *arbol);
 
 #endif // CLIENT_BST_H

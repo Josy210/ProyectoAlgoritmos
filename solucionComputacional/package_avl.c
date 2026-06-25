@@ -3,69 +3,69 @@
 #include <string.h>
 #include "package_avl.h"
 
-void initAVL(PackageAVL *tree) {
+void inicializarAVL(ArbolAVL *arbol) {
     // TODO
 }
 
-// Returns height of node (0 if NULL)
-int getHeight(AVLNode *node) {
-    // TODO
-    return 0;
-}
-
-// Returns balance factor: left height - right height
-int getBalanceFactor(AVLNode *node) {
+// Retorna altura del nodo (0 si NULL)
+int obtenerAltura(NodoAVL *nodo) {
     // TODO
     return 0;
 }
 
-// Simple right rotation
-AVLNode* rotateRight(AVLNode *y) {
+// Retorna factor de balance: altura izquierda - altura derecha
+int obtenerFactorBalance(NodoAVL *nodo) {
+    // TODO
+    return 0;
+}
+
+// Rotación simple a la derecha
+NodoAVL* rotarDerecha(NodoAVL *y) {
     // TODO
     return y;
 }
 
-// Simple left rotation
-AVLNode* rotateLeft(AVLNode *x) {
+// Rotación simple a la izquierda
+NodoAVL* rotarIzquierda(NodoAVL *x) {
     // TODO
     return x;
 }
 
-// Double rotation: left then right
-AVLNode* rotateLeftRight(AVLNode *node) {
+// Rotación doble izquierda-derecha
+NodoAVL* rotarIzquierdaDerecha(NodoAVL *nodo) {
     // TODO
-    return node;
+    return nodo;
 }
 
-// Double rotation: right then left
-AVLNode* rotateRightLeft(AVLNode *node) {
+// Rotación doble derecha-izquierda
+NodoAVL* rotarDerechaIzquierda(NodoAVL *nodo) {
     // TODO
-    return node;
+    return nodo;
 }
 
-// Rebalance node after insertion
-AVLNode* balance(AVLNode *node) {
+// Rebalancea el nodo luego de una inserción
+NodoAVL* balancear(NodoAVL *nodo) {
     // TODO
-    return node;
+    return nodo;
 }
 
-// Insert package into AVL - returns 1 if success, 0 if duplicate
-int insertPackageAVL(PackageAVL *tree, Package pkg) {
+// Inserta paquete en el AVL - retorna 1 si éxito, 0 si duplicado
+int insertarPaqueteAVL(ArbolAVL *arbol, Paquete paquete) {
     // TODO
     return 0;
 }
 
-// Search package by code - returns node or NULL
-AVLNode* searchPackageAVL(PackageAVL *tree, const char *code) {
+// Busca paquete por código - retorna nodo o NULL
+NodoAVL* buscarPaqueteAVL(ArbolAVL *arbol, const char *codigo) {
     // TODO
     return NULL;
 }
 
-// Display packages in order by code
-void displayAVLInOrder(PackageAVL *tree) {
+// Muestra paquetes en orden por código
+void mostrarAVLInOrder(ArbolAVL *arbol) {
     // TODO
 }
 
-void freeAVL(PackageAVL *tree) {
+void liberarAVL(ArbolAVL *arbol) {
     // TODO
 }

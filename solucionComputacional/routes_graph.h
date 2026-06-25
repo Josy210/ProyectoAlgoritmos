@@ -1,30 +1,30 @@
 #ifndef ROUTES_GRAPH_H
 #define ROUTES_GRAPH_H
 
-#define MAX_POINTS 20
-#define MAX_POINT_NAME 50
-#define INF 99999
+#define MAX_PUNTOS       20
+#define MAX_NOMBRE_PUNTO 50
+#define INFINITO         99999
 
-// ─── Graph using adjacency matrix ─────────────────────────────────
+// ─── Grafo mediante matriz de adyacencia ──────────────────────────
 typedef struct {
-    char pointNames[MAX_POINTS][MAX_POINT_NAME];
-    int  adjMatrix[MAX_POINTS][MAX_POINTS];
-    int  numPoints;
-} RouteGraph;
+    char nombresPuntos[MAX_PUNTOS][MAX_NOMBRE_PUNTO];
+    int  matrizAdyacencia[MAX_PUNTOS][MAX_PUNTOS];
+    int  numPuntos;
+} GrafoRutas;
 
-// ─── Dijkstra result ──────────────────────────────────────────────
+// ─── Resultado de Dijkstra ────────────────────────────────────────
 typedef struct {
-    int distances[MAX_POINTS];
-    int previous[MAX_POINTS];
-} DijkstraResult;
+    int distancias[MAX_PUNTOS];
+    int anteriores[MAX_PUNTOS];
+} ResultadoDijkstra;
 
-// ─── Function declarations ────────────────────────────────────────
-void initGraph(RouteGraph *graph);
-int  addPoint(RouteGraph *graph, const char *name);
-int  addRoute(RouteGraph *graph, const char *from, const char *to, int weight);
-int  findPointIndex(RouteGraph *graph, const char *name);
-void displayPoints(RouteGraph *graph);
-void displayAdjacencyMatrix(RouteGraph *graph);
-void dijkstra(RouteGraph *graph, const char *origin, const char *destination);
+// ─── Declaración de funciones ─────────────────────────────────────
+void inicializarGrafo(GrafoRutas *grafo);
+int  agregarPunto(GrafoRutas *grafo, const char *nombre);
+int  agregarRuta(GrafoRutas *grafo, const char *origen, const char *destino, int peso);
+int  buscarIndicePunto(GrafoRutas *grafo, const char *nombre);
+void mostrarPuntos(GrafoRutas *grafo);
+void mostrarMatrizAdyacencia(GrafoRutas *grafo);
+void dijkstra(GrafoRutas *grafo, const char *origen, const char *destino);
 
 #endif // ROUTES_GRAPH_H

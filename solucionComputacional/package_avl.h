@@ -3,34 +3,34 @@
 
 #include "types.h"
 
-// ─── AVL node ─────────────────────────────────────────────────────
-typedef struct AVLNode {
-    Package data;
-    struct AVLNode *left;
-    struct AVLNode *right;
-    int height;
-} AVLNode;
+// ─── Nodo del AVL ─────────────────────────────────────────────────
+typedef struct NodoAVL {
+    Paquete dato;
+    struct NodoAVL *izquierda;
+    struct NodoAVL *derecha;
+    int altura;
+} NodoAVL;
 
-// ─── AVL tree ─────────────────────────────────────────────────────
+// ─── Árbol AVL ────────────────────────────────────────────────────
 typedef struct {
-    AVLNode *root;
-    int size;
-} PackageAVL;
+    NodoAVL *raiz;
+    int tamano;
+} ArbolAVL;
 
-// ─── Function declarations ────────────────────────────────────────
-void     initAVL(PackageAVL *tree);
-int      insertPackageAVL(PackageAVL *tree, Package pkg);
-AVLNode* searchPackageAVL(PackageAVL *tree, const char *code);
-void     displayAVLInOrder(PackageAVL *tree);
-void     freeAVL(PackageAVL *tree);
+// ─── Declaración de funciones ─────────────────────────────────────
+void      inicializarAVL(ArbolAVL *arbol);
+int       insertarPaqueteAVL(ArbolAVL *arbol, Paquete paquete);
+NodoAVL*  buscarPaqueteAVL(ArbolAVL *arbol, const char *codigo);
+void      mostrarAVLInOrder(ArbolAVL *arbol);
+void      liberarAVL(ArbolAVL *arbol);
 
-// ─── Internal AVL helpers (used inside package_avl.c only) ───────
-int      getHeight(AVLNode *node);
-int      getBalanceFactor(AVLNode *node);
-AVLNode* rotateRight(AVLNode *y);
-AVLNode* rotateLeft(AVLNode *x);
-AVLNode* rotateLeftRight(AVLNode *node);
-AVLNode* rotateRightLeft(AVLNode *node);
-AVLNode* balance(AVLNode *node);
+// ─── Funciones internas del AVL ───────────────────────────────────
+int       obtenerAltura(NodoAVL *nodo);
+int       obtenerFactorBalance(NodoAVL *nodo);
+NodoAVL*  rotarDerecha(NodoAVL *y);
+NodoAVL*  rotarIzquierda(NodoAVL *x);
+NodoAVL*  rotarIzquierdaDerecha(NodoAVL *nodo);
+NodoAVL*  rotarDerechaIzquierda(NodoAVL *nodo);
+NodoAVL*  balancear(NodoAVL *nodo);
 
 #endif // PACKAGE_AVL_H

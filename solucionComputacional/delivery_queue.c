@@ -3,39 +3,39 @@
 #include <string.h>
 #include "delivery_queue.h"
 
-void initQueue(DeliveryQueue *queue) {
+void inicializarCola(ColaPendientes *cola) {
     // TODO
 }
 
-// Enqueue package - returns 1 if success
-int enqueue(DeliveryQueue *queue, Package pkg) {
+// Encola paquete - retorna 1 si éxito
+int enqueue(ColaPendientes *cola, Paquete paquete) {
     // TODO
     return 0;
 }
 
-// Dequeue - sets success=1 if ok, success=0 if empty
-Package dequeue(DeliveryQueue *queue, int *success) {
-    Package empty = {0};
+// Desencola - exito=1 si ok, exito=0 si vacía
+Paquete dequeue(ColaPendientes *cola, int *exito) {
+    Paquete vacio = {0};
     // TODO
-    return empty;
+    return vacio;
 }
 
-// Peek front without removing - sets success flag
-Package peekQueue(DeliveryQueue *queue, int *success) {
-    Package empty = {0};
+// Consulta frente sin eliminar
+Paquete peekCola(ColaPendientes *cola, int *exito) {
+    Paquete vacio = {0};
     // TODO
-    return empty;
+    return vacio;
 }
 
-void displayQueue(DeliveryQueue *queue) {
+void mostrarCola(ColaPendientes *cola) {
     // TODO
 }
 
-int isQueueEmpty(DeliveryQueue *queue) {
+int colaVacia(ColaPendientes *cola) {
     // TODO
     return 1;
 }
 
-void freeQueue(DeliveryQueue *queue) {
+void liberarCola(ColaPendientes *cola) {
     // TODO
 }

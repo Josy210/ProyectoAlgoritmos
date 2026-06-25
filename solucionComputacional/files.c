@@ -3,33 +3,33 @@
 #include <string.h>
 #include "files.h"
 
-// ─── Clients ──────────────────────────────────────────────────────
+// ─── Clientes ─────────────────────────────────────────────────────
 
-void saveClients(ClientBST *tree) {
-    // TODO: traverse BST inorder and write each client to FILE_CLIENTS
+void guardarClientes(ArbolClientes *arbol) {
+    // TODO: recorrer BST inorder y escribir cada cliente en ARCHIVO_CLIENTES
 }
 
-void loadClients(ClientBST *tree) {
-    // TODO: read FILE_CLIENTS line by line and insert each client into BST
+void cargarClientes(ArbolClientes *arbol) {
+    // TODO: leer ARCHIVO_CLIENTES línea por línea e insertar cada cliente en el BST
 }
 
-// ─── Packages ─────────────────────────────────────────────────────
+// ─── Paquetes ─────────────────────────────────────────────────────
 
-void savePackages(PackageList *list) {
-    // TODO: traverse list and write each package to FILE_PACKAGES
+void guardarPaquetes(ListaPaquetes *lista) {
+    // TODO: recorrer lista y escribir cada paquete en ARCHIVO_PAQUETES
 }
 
-void loadPackages(PackageList *list, PackageAVL *avl, ClientBST *bst) {
-    // TODO: read FILE_PACKAGES and insert each package into list and AVL
-    // Validate that the client exists in BST before inserting
+void cargarPaquetes(ListaPaquetes *lista, ArbolAVL *avl, ArbolClientes *bst) {
+    // TODO: leer ARCHIVO_PAQUETES e insertar cada paquete en lista y AVL
+    // Validar que el cliente exista en el BST antes de insertar
 }
 
-// ─── Routes ───────────────────────────────────────────────────────
+// ─── Rutas ────────────────────────────────────────────────────────
 
-void saveRoutes(RouteGraph *graph) {
-    // TODO: write points and adjacency matrix to FILE_ROUTES
+void guardarRutas(GrafoRutas *grafo) {
+    // TODO: escribir puntos y matriz de adyacencia en ARCHIVO_RUTAS
 }
 
-void loadRoutes(RouteGraph *graph) {
-    // TODO: read FILE_ROUTES and rebuild the graph
+void cargarRutas(GrafoRutas *grafo) {
+    // TODO: leer ARCHIVO_RUTAS y reconstruir el grafo
 }
