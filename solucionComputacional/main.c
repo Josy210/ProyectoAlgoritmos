@@ -104,5 +104,42 @@ void menuRutas() {
 }
 
 void menuReportes() {
-    // TODO: totales por estado, clientes en BST, paquetes en AVL, ruta más corta
+    int opcion;
+    do {
+        printf("\n===== REPORTES =====\n");
+        printf("1. Total de paquetes por estado\n");
+        printf("2. Clientes registrados\n");
+        printf("3. Paquetes ordenados por codigo (AVL)\n");
+        printf("4. Ruta mas corta entre dos puntos\n");
+        printf("0. Volver\n");
+        printf("Opcion: ");
+        scanf("%d", &opcion);
+
+        switch (opcion) {
+            case 1:
+                contarPaquetesPorEstado(&listaPaquetes);
+                break;
+            case 2:
+                mostrarInOrder(&arbolClientes);
+                break;
+            case 3:
+                mostrarAVLInOrder(&arbolAVL);
+                break;
+            case 4: {
+                char origen[MAX_NOMBRE_PUNTO];
+                char destino[MAX_NOMBRE_PUNTO];
+                mostrarPuntos(&grafoRutas);
+                printf("Ingrese origen: ");
+                scanf("%s", origen);
+                printf("Ingrese destino: ");
+                scanf("%s", destino);
+                dijkstra(&grafoRutas, origen, destino);
+                break;
+            }
+            case 0:
+                break;
+            default:
+                printf("Opcion invalida.\n");
+        }
+    } while (opcion != 0);
 }

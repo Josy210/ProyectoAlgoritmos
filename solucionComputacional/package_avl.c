@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "package_avl.h"
+#include "types.h"
 
 void inicializarAVL(ArbolAVL *arbol) {
     arbol->raiz = NULL;

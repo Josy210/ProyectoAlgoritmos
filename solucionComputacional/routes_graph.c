@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "routes_graph.h"
+#include "types.h"
 
 void inicializarGrafo(GrafoRutas *grafo) {
     grafo->numPuntos = 0;
