@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "returns_stack.h"
+#include "types.h"
 
 void inicializarPila(PilaDevoluciones *pila) {
     pila->tope = NULL;
@@ -14,8 +15,8 @@ int apilar(PilaDevoluciones *pila, Paquete paquete) {
         return 0;
     }
 
-    strncpy(paquete.estado, estadoDevuelto, maxEstado - 1);
-    paquete.estado[maxEstado - 1] = '\0';
+    strncpy(paquete.estado, ESTADO_DEVUELTO, MAX_ESTADO - 1);
+    paquete.estado[MAX_ESTADO - 1] = '\0';
     nuevo->dato = paquete;
     nuevo->siguiente = pila->tope;
     pila->tope = nuevo;

@@ -7,7 +7,7 @@ static void quitarSaltoLinea(char *texto) {
     texto[strcspn(texto, "\r\n")] = '\0';
 }
 
-static void guardarClientesRec(file *archivo, NodoBST *nodo) {
+static void guardarClientesRec(FILE *archivo, NodoBST *nodo) {
     if (nodo == NULL) {
         return;
     }
@@ -17,11 +17,12 @@ static void guardarClientesRec(file *archivo, NodoBST *nodo) {
             nodo->dato.correo, nodo->dato.direccion);
     guardarClientesRec(archivo, nodo->derecha);
 }
+static void guardarClientesRec(FILE *archivo, NodoBST *nodo);
 
 void guardarClientes(ArbolClientes *arbol) {
-    file *archivo = fopen(archivoClientes, "w");
+    FILE *archivo = fopen(ARCHIVO_CLIENTES, "w");
     if (archivo == NULL) {
-        printf("No se pudo guardar %s.\n", archivosClientes);
+        printf("No se pudo guardar %s.\n", ARCHIVO_CLIENTES);
         return;
     }
     guardarClientesRec(archivo, arbol->raiz);
@@ -29,7 +30,7 @@ void guardarClientes(ArbolClientes *arbol) {
 }
 
 void cargarClientes(ArbolClientes *arbol) {
-    file *archivo = fopen(archivoClientes, "r");
+    FILE *archivo = fopen(ARCHIVO_CLIENTES, "r");
     char linea[512];
 
     if (archivo == NULL) {
@@ -48,17 +49,17 @@ void cargarClientes(ArbolClientes *arbol) {
         cliente.id = atoi(token);
 
         token = strtok(NULL, "|");
-        strncpy(cliente.nombre, token == NULL ? "" : token, maxNombre - 1);
-        cliente.nombre[maxNombre - 1] = '\0';
+        strncpy(cliente.nombre, token == NULL ? "" : token, MAX_NOMBRE - 1);
+        cliente.nombre[MAX_NOMBRE - 1] = '\0';
         token = strtok(NULL, "|");
-        strncpy(cliente.telefono, token == NULL ? "" : token, maxTelefono - 1);
-        cliente.telefono[maxTelefono - 1] = '\0';
+        strncpy(cliente.telefono, token == NULL ? "" : token, MAX_TELEFONO - 1);
+        cliente.telefono[MAX_TELEFONO - 1] = '\0';
         token = strtok(NULL, "|");
-        strncpy(cliente.correo, token == NULL ? "" : token, maxCorreo - 1);
-        cliente.correo[maxCorreo - 1] = '\0';
+        strncpy(cliente.correo, token == NULL ? "" : token, MAX_CORREO - 1);
+        cliente.correo[MAX_CORREO - 1] = '\0';
         token = strtok(NULL, "|");
-        strncpy(cliente.direccion, token == NULL ? "" : token, maxDireccion - 1);
-        cliente.direccion[maxDireccion - 1] = '\0';
+        strncpy(cliente.direccion, token == NULL ? "" : token, MAX_DIRECCION - 1);
+        cliente.direccion[MAX_DIRECCION - 1] = '\0';
 
         insertarCliente(arbol, cliente);
     }
@@ -69,9 +70,9 @@ void cargarClientes(ArbolClientes *arbol) {
 // ─── Paquetes ─────────────────────────────────────────────────────
 
 void guardarPaquetes(ListaPaquetes *lista) {
-    file *archivo = fopen(archivoPaquetes, "w");
+    FILE *archivo = fopen(ARCHIVO_PAQUETES, "w");
     if (archivo == NULL) {
-        printf("No se pudo guardar %s.\n", archivoPaquetes);
+        printf("No se pudo guardar %s.\n", ARCHIVO_PAQUETES);
         return;
     }
 
@@ -86,7 +87,7 @@ void guardarPaquetes(ListaPaquetes *lista) {
 }
 
 void cargarPaquetes(ListaPaquetes *lista, ArbolAVL *avl, ArbolClientes *bst) {
-    FILE *archivo = fopen(archivoPaquetes, "r");
+    FILE *archivo = fopen(ARCHIVO_PAQUETES, "r");
     char linea[512];
 
     if (archivo == NULL) {
@@ -102,25 +103,25 @@ void cargarPaquetes(ListaPaquetes *lista, ArbolAVL *avl, ArbolClientes *bst) {
         if (token == NULL) {
             continue;
         }
-        strncpy(paquete.codigo, token, maxCodigo - 1);
-        paquete.codigo[maxCodigo - 1] = '\0';
+        strncpy(paquete.codigo, token, MAX_CODIGO - 1);
+        paquete.codigo[MAX_CODIGO - 1] = '\0';
 
         token = strtok(NULL, "|");
         paquete.idCliente = token == NULL ? 0 : atoi(token);
         token = strtok(NULL, "|");
-        strncpy(paquete.nombreDestinatario, token == NULL ? "" : token, maxNombre - 1);
-        paquete.nombreDestinatario[maxNombre - 1] = '\0';
+        strncpy(paquete.nombreDestinatario, token == NULL ? "" : token, MAX_NOMBRE - 1);
+        paquete.nombreDestinatario[MAX_NOMBRE - 1] = '\0';
         token = strtok(NULL, "|");
-        strncpy(paquete.destino, token == NULL ? "" : token, maxDireccion - 1);
-        paquete.destino[maxDireccion - 1] = '\0';
+        strncpy(paquete.destino, token == NULL ? "" : token, MAX_DIRECCION - 1);
+        paquete.destino[MAX_DIRECCION - 1] = '\0';
         token = strtok(NULL, "|");
         paquete.peso = token == NULL ? 0.0f : (float)atof(token);
         token = strtok(NULL, "|");
-        strncpy(paquete.prioridad, token == NULL ? "" : token, maxPrioridad - 1);
-        paquete.prioridad[maxPrioridad - 1] = '\0';
+        strncpy(paquete.prioridad, token == NULL ? "" : token, MAX_PRIORIDAD - 1);
+        paquete.prioridad[MAX_PRIORIDAD - 1] = '\0';
         token = strtok(NULL, "|");
-        strncpy(paquete.estado, token == NULL ? "" : token, maxEstado - 1);
-        paquete.estado[maxEstado - 1] = '\0';
+        strncpy(paquete.estado, token == NULL ? "" : token, MAX_ESTADO - 1);
+        paquete.estado[MAX_ESTADO - 1] = '\0';
 
         if (clienteExiste(bst, paquete.idCliente) && insertarPaquete(lista, paquete)) {
             insertarPaqueteAVL(avl, paquete);
@@ -131,9 +132,9 @@ void cargarPaquetes(ListaPaquetes *lista, ArbolAVL *avl, ArbolClientes *bst) {
 }
 
 void guardarRutas(GrafoRutas *grafo) {
-    FILE *archivo = fopen(archivoRutas, "w");
+    FILE *archivo = fopen(ARCHIVO_RUTAS, "w");
     if (archivo == NULL) {
-        printf("No se pudo guardar %s.\n", archivoRutas);
+        printf("No se pudo guardar %s.\n", ARCHIVO_RUTAS);
         return;
     }
 
@@ -155,7 +156,7 @@ void guardarRutas(GrafoRutas *grafo) {
 }
 
 void cargarRutas(GrafoRutas *grafo) {
-    FILE *archivo = fopen(archivoRutas, "r");
+    FILE *archivo = fopen(ARCHIVO_RUTAS, "r");
     char linea[512];
     int cantidad;
 
@@ -168,7 +169,7 @@ void cargarRutas(GrafoRutas *grafo) {
         return;
     }
     cantidad = atoi(linea);
-    if (cantidad < 0 || cantidad > maxPuntos) {
+    if (cantidad < 0 || cantidad > MAX_PUNTOS) {
         fclose(archivo);
         return;
     }

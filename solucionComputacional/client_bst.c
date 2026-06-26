@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "client_bst.h"
+#include "types.h"
 
 void inicializarBST(ArbolClientes *arbol) {
     arbol->raiz = NULL;

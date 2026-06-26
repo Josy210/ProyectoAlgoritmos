@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "delivery_queue.h"
+#include "types.h"
 
 void inicializarCola(ColaPendientes *cola) {
     cola->frente = NULL;
@@ -15,8 +16,8 @@ int enqueue(ColaPendientes *cola, Paquete paquete) {
         return 0;
     }
 
-    strncpy(paquete.estado, estadoPendiente, maxEstado - 1);
-    paquete.estado[maxEstado - 1] = '\0';
+    strncpy(paquete.estado, ESTADO_ENTREGADO, MAX_ESTADO - 1);
+    paquete.estado[MAX_ESTADO - 1] = '\0';
     nuevo->dato = paquete;
     nuevo->siguiente = NULL;
 
