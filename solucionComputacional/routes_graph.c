@@ -102,5 +102,57 @@ void mostrarMatrizAdyacencia(GrafoRutas *grafo) {
 
 // Calcula y muestra la ruta más corta usando Dijkstra
 void dijkstra(GrafoRutas *grafo, const char *origen, const char *destino) {
-    // TODO
+    int src = buscarIndicePunto(grafo, origen);
+    int dst = buscarIndicePunto(grafo, destino);
+
+    if (src == -1) { printf("Error: origen %s no existe\n", origen); return; }
+    if (dst == -1) { printf("Error: destino %s no existe\n", destino); return; }
+
+    int distancias[MAX_PUNTOS];
+    int anteriores[MAX_PUNTOS];
+    int visitados[MAX_PUNTOS];
+
+    for (int i = 0; i < grafo->numPuntos; i++) {
+        distancias[i] = INFINITO;
+        anteriores[i] = -1;
+        visitados[i] = 0;
+    }
+    distancias[src] = 0;
+
+    for (int count = 0; count < grafo->numPuntos; count++) {
+        int u = -1;
+        for (int i = 0; i < grafo->numPuntos; i++) {
+            if (!visitados[i] && (u == -1 || distancias[i] < distancias[u]))
+                u = i;
+        }
+        if (u == -1 || distancias[u] == INFINITO) break;
+        visitados[u] = 1;
+        for (int v = 0; v < grafo->numPuntos; v++) {
+            int peso = grafo->matrizAdyacencia[u][v];
+            if (peso > 0 && !visitados[v]) {
+                if (distancias[u] + peso < distancias[v]) {
+                    distancias[v] = distancias[u] + peso;
+                    anteriores[v] = u;
+                }
+            }
+        }
+    }
+    if (distancias[dst] == INFINITO) {
+        printf("No existe ruta entre %s y %s\n", origen, destino);
+        return;
+    }
+    int camino[MAX_PUNTOS];
+    int longitud = 0;
+    int actual = dst;
+    while (actual != -1) {
+        camino[longitud++] = actual;
+        actual = anteriores[actual];
+    }
+
+    printf("\nRuta mas corta: ");
+    for (int i = longitud - 1; i >= 0; i--) {
+        printf("%s", grafo->nombresPuntos[camino[i]]);
+        if (i > 0) printf(" -> ");
+    }
+    printf("\nDistancia total: %d km\n", distancias[dst]);
 }
