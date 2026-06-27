@@ -82,7 +82,7 @@ int main(void) {
     return 0;
 }
 
-// ─── Submenús (TODO: implementar cada opción) ─────────────────────
+// ─── Submenús
 
 void menuClientes() {
     int opcion;
