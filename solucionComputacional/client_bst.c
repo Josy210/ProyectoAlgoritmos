@@ -35,6 +35,14 @@ static int insertarRecursivo(NodoBST **raiz, Cliente cliente) {
 }
 
 int insertarCliente(ArbolClientes *arbol, Cliente cliente) {
+    if (cliente.id <= 0) {
+        printf("Error: el ID debe ser un numero positivo.\n");
+        return 0;
+    }
+    if (clienteExiste(arbol, cliente.id)) {
+        printf("Error: ya existe un cliente con el ID %d.\n", cliente.id);
+        return 0;
+    }
     int insertado = insertarRecursivo(&arbol->raiz, cliente);
     if (insertado) {
         arbol->tamano++;

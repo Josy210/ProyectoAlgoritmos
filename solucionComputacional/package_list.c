@@ -40,6 +40,10 @@ void inicializarListaPaquetes(ListaPaquetes *lista) {
 
 // Inserta paquete
 int insertarPaquete(ListaPaquetes *lista, Paquete paquete) {
+    if (paquete.peso <= 0) {
+        printf("Error: el peso debe ser mayor a cero.\n");
+        return 0;
+    }
     if (buscarPaquetePorCodigo(lista, paquete.codigo) != NULL) {
         printf("Error: ya existe un paquete con el codigo %s\n", paquete.codigo);
         return 0;
